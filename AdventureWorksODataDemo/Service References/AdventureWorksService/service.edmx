@@ -1,0 +1,98 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices m:DataServiceVersion="3.0" m:MaxDataServiceVersion="3.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+    <Schema Namespace="AdventureWorksModel" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <EntityType Name="vManufacturingInstructions">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ProductModelID" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="ProductName" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Instructions" Type="Edm.String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        <Property Name="LocationID" Type="Edm.Int32" />
+        <Property Name="SetupHours" Type="Edm.Decimal" Precision="9" Scale="4" />
+        <Property Name="MachineHours" Type="Edm.Decimal" Precision="9" Scale="4" />
+        <Property Name="LaborHours" Type="Edm.Decimal" Precision="9" Scale="4" />
+        <Property Name="LotSize" Type="Edm.Int32" />
+        <Property Name="Step" Type="Edm.String" MaxLength="1024" FixedLength="false" Unicode="true" />
+        <Property Name="ID" Type="Edm.Int64" Nullable="false" />
+      </EntityType>
+      <EntityType Name="vWorkOrderRouting">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="WorkOrderID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ProductID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ProductNumber" Type="Edm.String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+        <Property Name="ProductName" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="OperationSequence" Type="Edm.Int16" Nullable="false" />
+        <Property Name="LocationID" Type="Edm.Int16" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="ScheduledStartDate" Type="Edm.DateTime" Nullable="false" Precision="3" />
+        <Property Name="ActualStartDate" Type="Edm.DateTime" Precision="3" />
+        <Property Name="ScheduledEndDate" Type="Edm.DateTime" Nullable="false" Precision="3" />
+        <Property Name="ActualEndDate" Type="Edm.DateTime" Precision="3" />
+        <Property Name="ActualResourceHrs" Type="Edm.Decimal" Precision="9" Scale="4" />
+        <Property Name="PlannedCost" Type="Edm.Decimal" Nullable="false" Precision="19" Scale="4" />
+        <Property Name="ActualCost" Type="Edm.Decimal" Precision="19" Scale="4" />
+        <Property Name="OrderQty" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ScrappedQty" Type="Edm.Int16" Nullable="false" />
+        <Property Name="DueDate" Type="Edm.DateTime" Nullable="false" Precision="3" />
+        <Property Name="ScrapReasonID" Type="Edm.Int16" />
+        <Property Name="ScrapReason" Type="Edm.String" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="ID" Type="Edm.Int64" Nullable="false" />
+      </EntityType>
+      <EntityType Name="vProductCatalog">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ThumbNailPhoto" Type="Edm.Stream" Nullable="false" />
+        <Property Name="LargePhoto" Type="Edm.Stream" Nullable="false" />
+        <Property Name="ProductID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ProductNumber" Type="Edm.String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+        <Property Name="ProductName" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="ProductModel" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="ProductCategory" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="ProductSubcategory" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+        <Property Name="CultureID" Type="Edm.String" Nullable="false" MaxLength="6" FixedLength="true" Unicode="true" />
+        <Property Name="Color" Type="Edm.String" MaxLength="15" FixedLength="false" Unicode="true" />
+        <Property Name="Size" Type="Edm.String" MaxLength="5" FixedLength="false" Unicode="true" />
+        <Property Name="Weight" Type="Edm.Decimal" Precision="8" Scale="2" />
+        <Property Name="ListPrice" Type="Edm.Decimal" Nullable="false" Precision="19" Scale="4" />
+        <Property Name="ID" Type="Edm.Int64" Nullable="false" />
+      </EntityType>
+      <EntityType Name="vCompanySales">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ProductCategory" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="ProductSubCategory" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="OrderYear" Type="Edm.Int32" />
+        <Property Name="OrderQtr" Type="Edm.String" MaxLength="31" FixedLength="false" Unicode="true" />
+        <Property Name="Sales" Type="Edm.Decimal" Precision="19" Scale="4" />
+        <Property Name="ID" Type="Edm.Int64" Nullable="false" />
+      </EntityType>
+      <EntityType Name="vTerritorySalesDrilldown">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="TerritoryName" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="SalesPersonID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="EmployeeFirstName" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="EmployeeLastName" Type="Edm.String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        <Property Name="SalesOrderNumber" Type="Edm.String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="true" />
+        <Property Name="Total" Type="Edm.Decimal" Nullable="false" Precision="19" Scale="4" />
+        <Property Name="ID" Type="Edm.Int64" Nullable="false" />
+      </EntityType>
+    </Schema>
+    <Schema Namespace="Microsoft.Samples.SqlServer.AdventureWorksService" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <EntityContainer Name="AdventureWorksEntities" m:IsDefaultEntityContainer="true" p6:LazyLoadingEnabled="true" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntitySet Name="ManufacturingInstructions" EntityType="AdventureWorksModel.vManufacturingInstructions" />
+        <EntitySet Name="WorkOrderRouting" EntityType="AdventureWorksModel.vWorkOrderRouting" />
+        <EntitySet Name="ProductCatalog" EntityType="AdventureWorksModel.vProductCatalog" />
+        <EntitySet Name="CompanySales" EntityType="AdventureWorksModel.vCompanySales" />
+        <EntitySet Name="TerritorySalesDrilldown" EntityType="AdventureWorksModel.vTerritorySalesDrilldown" />
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
