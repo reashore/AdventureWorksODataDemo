@@ -23,6 +23,8 @@ namespace AdventureWorksODataDemo
 			Console.WriteLine("End of query1");
 
 			DataServiceQuery<vProductCatalog> query2 = adventureWorksEntities.ProductCatalog;
+			query2.AddQueryOption("$top", 2);
+			query2.AddQueryOption("$inlinecount", "allpages");
 			QueryOperationResponse<vProductCatalog> response = (QueryOperationResponse<vProductCatalog>)query2.Execute();
 
 			//long totalCount = response.TotalCount;
